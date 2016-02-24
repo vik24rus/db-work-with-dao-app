@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 
     public static final String H2_DRIVHER = "org.h2.Driver";
-    public static final String DB_URL = "jdbc:h2:~/db-work-with-dao-app";
+    public static final String DB_URL = "jdbc:h2:~/test";
     public static final String LOGIN = "sa";
     public static final String PASSWORD = "";
 
