@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
 
-    public static final String H2_DRIVHER = "org.h2.Driver";
+    public static final String H2_DRIVER = "org.h2.Driver";
     public static final String DB_URL = "jdbc:h2:~/test";
     public static final String LOGIN = "sa";
     public static final String PASSWORD = "";
@@ -22,9 +22,9 @@ public class ConnectionFactory {
 
     private ConnectionFactory() {
         try {
-            Class.forName(H2_DRIVHER);
+            Class.forName(H2_DRIVER);
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException("Not found class " + H2_DRIVHER, e);
+            throw new RuntimeException("Not found class " + H2_DRIVER, e);
         }
     }
 
