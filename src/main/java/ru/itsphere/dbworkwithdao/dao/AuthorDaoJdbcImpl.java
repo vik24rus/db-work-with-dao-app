@@ -19,7 +19,7 @@ import java.util.List;
 public class AuthorDaoJdbcImpl implements AuthorDao {
 
     public static final String SELECT_BY_ID_QUERY = "SELECT * FROM authors WHERE id = ?";
-    public static final String INSERT_AUTHOR = "    ";
+    public static final String INSERT_AUTHOR = "    ";//доделать
     public static final String SELECT_ALL_AUTHOR = "    ";
     public static final String UPDATE_AUTHOR = "    ";
     public static final String DELETE_BY_ID_QUERY = "DELETE FROM authors WHERE id = ?";
@@ -53,7 +53,14 @@ public class AuthorDaoJdbcImpl implements AuthorDao {
 
     @Override
     public void insert(Author author) {
-
+        long id = author.getId();
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(INSERT_AUTHOR);) {
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            throw new DaoException(String.format("Method insert(id: '%d') has thrown an exception.", id), e);
+        }
     }
 
     @Override
