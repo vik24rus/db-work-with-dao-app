@@ -5,6 +5,7 @@ import ru.itsphere.dbworkwithdao.domain.Author;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  *
@@ -43,5 +44,30 @@ public class AuthorDaoJdbcImpl implements AuthorDao {
             throw new DaoException(String.format("Method getById(id: '%d') has thrown an exception.", id), e);
         }
         return null;
+    }
+
+    @Override
+    public void insert(Author author) {
+
+    }
+
+    @Override
+    public List<Author> getAll() {
+        return null;
+    }
+
+    @Override
+    public void update(Author author) {
+
+    }
+
+    @Override
+    public void deleteById(long id) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
     }
 }
