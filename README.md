@@ -9,20 +9,17 @@ http://it-channel.ru/2016/02/25/db-work-with-dao/
 В моем случае я использую SQLite
 
 
-Скрипт для БД H2:
+Скрипт для БД SQLite:
 
-CREATE TABLE authors
+CREATE TABLE `authors` (
 
-(
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 
-    id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+	`name`	TEXT NOT NULL,
 
-    name VARCHAR(255) NOT NULL,
-
-    trade_union VARCHAR(255)
+	`trade_union`	TEXT
 
 );
-
 
 
 Должно получиться:
