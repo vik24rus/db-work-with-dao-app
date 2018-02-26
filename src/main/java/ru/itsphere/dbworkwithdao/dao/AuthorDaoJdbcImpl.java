@@ -19,6 +19,11 @@ import java.util.List;
 public class AuthorDaoJdbcImpl implements AuthorDao {
 
     public static final String SELECT_BY_ID_QUERY = "SELECT * FROM authors WHERE id = ?";
+    public static final String INSERT_AUTHOR = "    ";
+    public static final String SELECT_ALL_AUTHOR = "    ";
+    public static final String UPDATE_AUTHOR = "    ";
+    public static final String DELETE_BY_ID_QUERY = "DELETE FROM authors WHERE id = ?";
+    public static final String DELETE_ALL = "DELETE FROM authors";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_UNION = "trade_union";
@@ -53,6 +58,8 @@ public class AuthorDaoJdbcImpl implements AuthorDao {
 
     @Override
     public List<Author> getAll() {
+
+
         return null;
     }
 
@@ -63,11 +70,22 @@ public class AuthorDaoJdbcImpl implements AuthorDao {
 
     @Override
     public void deleteById(long id) {
-
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID_QUERY);) {
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            throw new DaoException(String.format("Method deleteById(id: '%d') has thrown an exception.", id), e);
+        }
     }
 
     @Override
     public void deleteAll() {
-
+        try (Connection connection = connectionFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_ALL);) {
+            statement.executeUpdate();
+        } catch (Exception e) {
+            throw new DaoException(String.format("Method deleteAll has thrown an exception."), e);
+        }
     }
 }

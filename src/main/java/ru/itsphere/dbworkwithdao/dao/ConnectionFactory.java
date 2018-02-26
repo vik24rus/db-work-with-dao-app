@@ -13,18 +13,17 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
 
-    public static final String H2_DRIVER = "org.h2.Driver";
-    public static final String DB_URL = "jdbc:h2:~/test";
-    public static final String LOGIN = "sa";
-    public static final String PASSWORD = "";
+    public static final String SQlite_DRIVER = "org.sqlite.jdbc";
+    public static final String DB_URL = "jdbc:sqlite:src/main/java/ru/itsphere/dbworkwithdao/workwithdao.db";
+
 
     private static ConnectionFactory instance;
 
     private ConnectionFactory() {
         try {
-            Class.forName(H2_DRIVER);
+            Class.forName(SQlite_DRIVER);
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException("Not found class " + H2_DRIVER, e);
+            throw new RuntimeException("Not found class " + SQlite_DRIVER, e);
         }
     }
 
@@ -36,6 +35,6 @@ public class ConnectionFactory {
     }
 
     public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(DB_URL, LOGIN, PASSWORD);
+        return DriverManager.getConnection(DB_URL);
     }
 }
