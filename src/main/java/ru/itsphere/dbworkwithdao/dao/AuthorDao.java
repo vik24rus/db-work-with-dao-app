@@ -54,4 +54,6 @@ public interface AuthorDao {
      * Удаляет всех авторов.
      */
     void deleteAll();
+
+
 }

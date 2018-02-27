@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class ConnectionFactory {
 
-    public static final String SQlite_DRIVER = "org.sqlite.jdbc";
+    public static final String SQlite_DRIVER = "org.sqlite.JDBC";
     public static final String DB_URL = "jdbc:sqlite:src/main/java/ru/itsphere/dbworkwithdao/workwithdao.db";
 
 

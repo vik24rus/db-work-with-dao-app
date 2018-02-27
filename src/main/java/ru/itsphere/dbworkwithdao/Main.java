@@ -15,9 +15,9 @@ public class Main {
 
     public static void main(String[] args) {
         authorDao.deleteAll();
-        Author sasha = new Author(0, "Sasha", "World union");
-        Author pasha = new Author(0, "Pasha", "World union");
-        Author dasha = new Author(0, "Dasha", null);
+        Author sasha = new Author(1, "Sasha", "World union");
+        Author pasha = new Author(2, "Pasha", "World union");
+        Author dasha = new Author(3, "Dasha", null);
 
         authorDao.insert(sasha);
         authorDao.insert(pasha);
